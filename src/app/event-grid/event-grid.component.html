@@ -32,19 +32,19 @@
             heading="price"
     >
     </sky-grid-column>
-    <!--<sky-grid-column-->
-            <!--id="id"-->
-            <!--field="id"-->
-            <!--width="50"-->
-            <!--[isSortable]=false-->
-            <!--[locked]=true-->
-            <!--&lt;!&ndash;[template]="buyNow"&ndash;&gt;-->
-    <!--&gt;-->
-    <!--</sky-grid-column>-->
+    <sky-grid-column
+            id="id"
+            field="id"
+            width="50"
+            [isSortable]=false
+            [locked]=true
+            [template]="buyNow"
+    >
+    </sky-grid-column>
 
-    <!--<ng-template let-row="row" #buyNow>-->
-        <!--<buy-link [event]="row"></buy-link>-->
-    <!--</ng-template>-->
+    <ng-template let-row="row" #buyNow>
+        <buy-link-button [event]="row"></buy-link-button>
+    </ng-template>
 
     <ng-template let-value="value" #dateDisplay>
         {{value | date: 'medium'}}
