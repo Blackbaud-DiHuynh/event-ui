@@ -22,7 +22,7 @@ export class BuyLinkButtonComponent {
             providers: [{ provide: PurchaseModalContext, useValue: context}]
         };
 
-        options.fullPage = true;
+        options.size = 'large';
 
         this.modal.open(PurchaseModalComponent, options);
     }

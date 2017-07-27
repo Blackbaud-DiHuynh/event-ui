@@ -11,19 +11,26 @@
                     Current Price: $89.00 <br/>
                 </div>
                 <br>
-                <div class="sky-form-group">
-                    <label>How many ticket do you want?</label>
-                    <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()">
-                </div>
-                <br>
                 <div>
-                    Total Purchase Amount: {{totalAmount}}
+                    <div class="sky-form-group">
+                        <label>How many ticket do you want?</label>
+                        <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()">
+                    </div>
+                    <br>
+                    <div>
+                        Total Purchase Amount: {{totalAmount}}
+                    </div>
+                </div>
+                <div [hidden]="notInCart">
+                <br>
+                <div class="sky-emphasized">
+                    <label>Please click here to confirm your order:</label>
+                    <button type="button" class="sky-btn sky-btn-primary" (click)="modal.close()">
+                        Purchase Tickets
+                    </button>
+                </div>
                 </div>
             </form>
         </div>
     </sky-modal-content>
-
-    <!--<ng-template let-value="value" #dateDisplay>-->
-        <!--{{value | date: 'medium'}}-->
-    <!--</ng-template>-->
 </sky-modal>

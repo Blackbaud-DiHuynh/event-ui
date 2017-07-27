@@ -12,6 +12,7 @@ export class PurchaseModalComponent implements OnInit {
     public event: Event;
     public amount: number;
     public totalAmount: number;
+    public notInCart: boolean = true;
 
     constructor(private modal: SkyModalInstance,
                 public context: PurchaseModalContext,
@@ -29,5 +30,10 @@ export class PurchaseModalComponent implements OnInit {
     public calculateTotal(): void {
         console.log('in calculateTotal');
         this.totalAmount = Math.random();
+        this.notInCart = false;
+    }
+
+    public placeInCart(): void {
+        this.notInCart = false;
     }
 }
