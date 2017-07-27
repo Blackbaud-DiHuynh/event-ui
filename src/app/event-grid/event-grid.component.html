@@ -1,0 +1,52 @@
+<sky-grid
+        fit="scroll"
+        [data]="events">
+    <sky-grid-column
+            id="name"
+            field="name"
+            heading="name"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+            id="location"
+            field="location"
+            heading="location"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+            id="date"
+            field="date"
+            heading="date"
+            [template]="dateDisplay"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+            id="available"
+            field="available"
+            heading="available"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+            id="price"
+            field="price"
+            heading="price"
+    >
+    </sky-grid-column>
+    <!--<sky-grid-column-->
+            <!--id="id"-->
+            <!--field="id"-->
+            <!--width="50"-->
+            <!--[isSortable]=false-->
+            <!--[locked]=true-->
+            <!--&lt;!&ndash;[template]="buyNow"&ndash;&gt;-->
+    <!--&gt;-->
+    <!--</sky-grid-column>-->
+
+    <!--<ng-template let-row="row" #buyNow>-->
+        <!--<buy-link [event]="row"></buy-link>-->
+    <!--</ng-template>-->
+
+    <ng-template let-value="value" #dateDisplay>
+        {{value | date: 'medium'}}
+    </ng-template>
+</sky-grid>
