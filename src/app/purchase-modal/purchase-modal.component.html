@@ -2,26 +2,51 @@
     <sky-modal-header>
        <h1> {{event.name}} | {{event.date | date: 'medium'}} </h1>
     </sky-modal-header>
-    <sky-modal-content>
+    <sky-modal-content class="ticket-content">
+        <div class="ticket-details">
+            <sky-definition-list labelWidth="200px" defaultValue=" ">
+                <sky-definition-list-content>
+                    <sky-definition-list-label>
+                        Location
+                    </sky-definition-list-label>
+                    <sky-definition-list-value>
+                        {{event.location}}
+                    </sky-definition-list-value>
+                </sky-definition-list-content>
+                <sky-definition-list-content>
+                    <sky-definition-list-label>
+                        Number of Tickets Available
+                    </sky-definition-list-label>
+                    <sky-definition-list-value>
+                        {{event.remainingInventory}}
+                    </sky-definition-list-value>
+                </sky-definition-list-content>
+                <sky-definition-list-content>
+                    <sky-definition-list-label>
+                        Current Price
+                    </sky-definition-list-label>
+                    <sky-definition-list-value>
+                        {{transaction.unitPrice | currency:'USD':true:'1.2-2'}}
+                    </sky-definition-list-value>
+                </sky-definition-list-content>
+            </sky-definition-list>
+        </div>
         <div>
             <form>
-                <div>
-                    Location: {{event.location}} <br/>
-                    Number of Tickets Avaliable: {{event.remainingInventory}} <br/>
-                    Current Price: {{transaction.unitPrice | currency:'USD':true:'1.2-2'}} <br/>
-                </div>
                 <br>
                 <div>
-                    <div class="sky-form-group">
-                        <label>How many ticket do you want?</label>
-                        <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()" (ngModelChange)="calculateTotal()" autocomplete="off">
+                    <div class="sky-form-group ticket-details">
+                        <div class="ticket-input">
+                            <label>How many tickets do you want?</label>
+                            <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()" (ngModelChange)="calculateTotal()" autocomplete="off">
+                        </div>
                     </div>
                     <br>
                     <div>
                         Total Purchase Amount: {{totalAmount | currency:'USD':true:'1.2-2'}}
                     </div>
                 </div>
-                <div [hidden]="notInCart">
+                <div [hidden]="notInCart" class="purchase-button">
                 <br>
                 <div class="sky-emphasized">
                     <label>Please click here to confirm your order:</label>

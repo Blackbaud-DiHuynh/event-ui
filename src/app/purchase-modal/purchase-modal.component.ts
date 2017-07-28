@@ -10,7 +10,8 @@ import { Operation } from '../shared/operation';
 
 @Component({
     selector: 'purchase-modal',
-    templateUrl: './purchase-modal.component.html'
+    templateUrl: './purchase-modal.component.html',
+    styleUrls: ['./purchase-modal.component.scss']
 })
 export class PurchaseModalComponent implements OnInit {
     public event: Event;
