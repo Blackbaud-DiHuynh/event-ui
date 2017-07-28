@@ -14,7 +14,7 @@
                 <div>
                     <div class="sky-form-group">
                         <label>How many ticket do you want?</label>
-                        <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()">
+                        <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()" (ngModelChange)="calculateTotal()" autocomplete="off">
                     </div>
                     <br>
                     <div>
