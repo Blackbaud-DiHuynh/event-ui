@@ -4,20 +4,27 @@
     <sky-grid-column
             id="name"
             field="name"
-            heading="name"
+            heading="Title"
     >
     </sky-grid-column>
     <sky-grid-column
             id="location"
             field="location"
-            heading="location"
+            heading="Location"
     >
     </sky-grid-column>
     <sky-grid-column
             id="date"
             field="date"
-            heading="date"
+            heading="Date"
             [template]="dateDisplay"
+    >
+    </sky-grid-column>
+    <sky-grid-column
+            id="date"
+            field="date"
+            heading="Time"
+            [template]="timeDisplay"
     >
     </sky-grid-column>
     <sky-grid-column
@@ -48,7 +55,11 @@
     </ng-template>
 
     <ng-template let-value="value" #dateDisplay>
-        {{value | date: 'medium'}}
+        {{value | date: 'longDate'}}
+    </ng-template>
+
+    <ng-template let-value="value" #timeDisplay>
+        {{value | date: 'shortTime'}}
     </ng-template>
 
     <ng-template let-value="value" #price>
