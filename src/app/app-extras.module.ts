@@ -5,6 +5,7 @@ import { EventService } from './shared/EventService';
 import { EventSubmissionService } from './shared/EventSubmissionService';
 import { PurchaseModalComponent } from './purchase-modal/purchase-modal.component';
 import { SkyModule } from '@blackbaud/skyux/dist/core';
+import { TransactionService } from './shared/TransactionService';
 
 // Specify entry components, module-level providers, etc. here.
 @NgModule({
@@ -15,7 +16,8 @@ import { SkyModule } from '@blackbaud/skyux/dist/core';
   ],
   providers: [
       EventService,
-      EventSubmissionService
+      EventSubmissionService,
+      TransactionService
   ],
   entryComponents: [
       PurchaseModalComponent

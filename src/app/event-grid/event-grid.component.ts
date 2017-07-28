@@ -32,7 +32,6 @@ export class EventGridComponent implements OnInit {
             retrievedEvents => {
                 this.events = retrievedEvents;
                 this.mapCurrentPrice(retrievedEvents);
-                console.log(this.events[0].currentPrice);
             },
             error => {
                 console.log(error);
