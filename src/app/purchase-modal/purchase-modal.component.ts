@@ -5,6 +5,8 @@ import { PurchaseModalContext } from './purchase-modal-context';
 import { EventService } from '../shared/EventService';
 import { Transaction } from '../shared/Transaction';
 import { TransactionService } from '../shared/TransactionService';
+import { TransactionSubmissionService } from '../shared/EventSubmissionService';
+import { Operation } from '../shared/operation';
 
 @Component({
     selector: 'purchase-modal',
@@ -20,7 +22,8 @@ export class PurchaseModalComponent implements OnInit {
     constructor(private modal: SkyModalInstance,
                 public context: PurchaseModalContext,
                 public eventService: EventService,
-                public transactionService: TransactionService) {}
+                public transactionService: TransactionService,
+                private transactionSumbissionService: TransactionSubmissionService) {}
 
     public ngOnInit(): void {
         this.event = new Event;
@@ -38,7 +41,10 @@ export class PurchaseModalComponent implements OnInit {
         this.transactionService.recordTransaction(this.transaction).subscribe(
             savedTransaction => {
                 if (savedTransaction.id) {
+                    this.transactionSumbissionService.success(Operation.SAVE);
                     this.modal.save();
+                } else {
+                    this.transactionSumbissionService.failure(Operation.SAVE);
                 }
             }
         );

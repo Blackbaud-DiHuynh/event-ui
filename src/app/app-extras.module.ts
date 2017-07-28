@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { EventService } from './shared/EventService';
-import { EventSubmissionService } from './shared/EventSubmissionService';
+import { TransactionSubmissionService } from './shared/EventSubmissionService';
 import { PurchaseModalComponent } from './purchase-modal/purchase-modal.component';
 import { SkyModule } from '@blackbaud/skyux/dist/core';
 import { TransactionService } from './shared/TransactionService';
@@ -16,7 +16,7 @@ import { TransactionService } from './shared/TransactionService';
   ],
   providers: [
       EventService,
-      EventSubmissionService,
+      TransactionSubmissionService,
       TransactionService
   ],
   entryComponents: [

@@ -1,5 +1,3 @@
 export enum Operation {
-  CREATE = <any>'Create',
-  EDIT = <any>'Edit',
-  DELETE = <any>'Delete'
+  SAVE = <any>'Save'
 }

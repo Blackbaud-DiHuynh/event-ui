@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EventService } from '../shared/EventService';
 import { Event } from '../shared/Event';
-import { EventSubmissionService } from '../shared/EventSubmissionService';
+import { TransactionSubmissionService } from '../shared/EventSubmissionService';
 import { SkyModalService } from '@blackbaud/skyux/dist/modules/modal';
 
 @Component({
@@ -15,12 +15,12 @@ export class EventGridComponent implements OnInit {
 
     constructor(private eventService: EventService,
                 private modal: SkyModalService,
-                private eventSubmissionService: EventSubmissionService) { }
+                private transactionSubmissionService: TransactionSubmissionService) { }
 
     public ngOnInit(): void {
         this.getAllEvents();
 
-        this.modalSubscription = this.eventSubmissionService.result.subscribe(
+        this.modalSubscription = this.transactionSubmissionService.result.subscribe(
             result => {
                 this.getAllEvents();
             }

@@ -9,6 +9,6 @@ export class Event {
         public capacity: number = undefined,
         public tickets: Ticket[] = [],
         public remainingInventory: string = undefined,
-        public currentPrice: number = undefined
+        public currentPrice: number
     ) {}
 }

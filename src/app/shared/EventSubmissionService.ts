@@ -5,7 +5,7 @@ import { Operation } from './operation';
 import { OperationStatus } from './operation-status';
 
 @Injectable()
-export class EventSubmissionService {
+export class TransactionSubmissionService {
   private statusChange = new Subject<OperationResult>();
   private _result = this.statusChange.asObservable();
 
