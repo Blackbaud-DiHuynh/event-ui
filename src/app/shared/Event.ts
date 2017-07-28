@@ -7,7 +7,8 @@ export class Event {
         public time: Date = new Date,
         public location: string = undefined,
         public capacity: number = undefined,
-        public tickets: [Ticket] = [new Ticket()],
-        public remainingInventory: string = undefined
+        public tickets: Ticket[] = [],
+        public remainingInventory: string = undefined,
+        public currentPrice: number = undefined
     ) {}
 }

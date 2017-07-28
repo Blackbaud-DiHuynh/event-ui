@@ -31,10 +31,18 @@ export class EventGridComponent implements OnInit {
         this.eventService.getAllEvents().subscribe(
             retrievedEvents => {
                 this.events = retrievedEvents;
+                this.mapCurrentPrice(retrievedEvents);
+                console.log(this.events[0].currentPrice);
             },
             error => {
                 console.log(error);
             }
         );
+    }
+
+    private mapCurrentPrice(retrievedEvents: Event[]): void {
+        for (let i = 0; i < retrievedEvents.length; i += 1) {
+            this.events[i].currentPrice = retrievedEvents[i].tickets[0].currentPrice;
+        }
     }
 }

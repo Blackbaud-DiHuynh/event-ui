@@ -28,8 +28,7 @@ export class PurchaseModalComponent implements OnInit {
     }
 
     public calculateTotal(): void {
-        console.log('in calculateTotal');
-        this.totalAmount = Math.random();
+        this.totalAmount = Math.random() * this.amount;
         this.notInCart = false;
     }
 
