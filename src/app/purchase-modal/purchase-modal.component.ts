@@ -54,7 +54,7 @@ export class PurchaseModalComponent implements OnInit {
     }
 
     public calculateTotal(): void {
-        if (this.isNormalInteger(this.amount.toString())) {
+        if (this.validateTicketPurhcase(this.amount)) {
             this.invalidNumTicketsFlag = false;
             this.totalAmount = this.transaction.unitPrice * this.amount;
             this.notInCart = false;
@@ -62,6 +62,10 @@ export class PurchaseModalComponent implements OnInit {
             this.totalAmount = 0;
             this.invalidNumTicketsFlag = true;
         }
+    }
+
+    private validateTicketPurhcase(amount: number) : boolean {
+        return this.isNormalInteger(amount.toString()) && amount <= this.event.remainingInventory;
     }
 
     private isNormalInteger(str : string) : boolean {
