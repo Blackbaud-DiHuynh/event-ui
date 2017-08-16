@@ -19,6 +19,7 @@ export class PurchaseModalComponent implements OnInit {
     public amount: number;
     public totalAmount: number;
     public notInCart: boolean = true;
+    public invalidNumTicketsFlag: boolean = false;
 
     constructor(private modal: SkyModalInstance,
                 public context: PurchaseModalContext,
@@ -53,7 +54,17 @@ export class PurchaseModalComponent implements OnInit {
     }
 
     public calculateTotal(): void {
-        this.totalAmount = this.transaction.unitPrice * this.amount;
-        this.notInCart = false;
+        if (this.isNormalInteger(this.amount.toString())) {
+            this.invalidNumTicketsFlag = false;
+            this.totalAmount = this.transaction.unitPrice * this.amount;
+            this.notInCart = false;
+        } else {
+            this.totalAmount = 0;
+            this.invalidNumTicketsFlag = true;
+        }
+    }
+
+    private isNormalInteger(str : string) : boolean {
+        return /^\+?(0|[1-9]\d*)$/.test(str);
     }
 }

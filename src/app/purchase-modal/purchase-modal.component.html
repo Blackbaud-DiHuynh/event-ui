@@ -39,6 +39,7 @@
                         <div class="ticket-input">
                             <label>How many tickets do you want?</label>
                             <input type="text" [(ngModel)]="amount" name="amount" (blur)="calculateTotal()" (ngModelChange)="calculateTotal()" autocomplete="off">
+                            <p class="invalid-tickets-error" *ngIf="invalidNumTicketsFlag">Please select a valid number of tickets to purchase.</p>
                         </div>
                     </div>
                     <br>
